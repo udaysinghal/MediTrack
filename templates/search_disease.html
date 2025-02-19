@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Disease by Location</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script>
+        $(document).ready(function() {
+            var diseases = ["Cancer", "Diabetes", "COVID-19", "Flu", "Hypertension"]; // Example diseases
+            var cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]; // Example cities
+
+            $("#disease").autocomplete({
+                source: diseases
+            });
+
+            $("#city").autocomplete({
+                source: cities
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Search Disease by Location</h1>
+        <form action="/search" method="post">
+            <div class="form-group">
+                <label for="disease">Disease:</label>
+                <input type="text" id="disease" name="disease" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</body>
+</html>
+
