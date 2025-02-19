@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
+from vercel_lambda import handler
 import mysql.connector
 
 app = Flask(__name__)
@@ -102,6 +103,7 @@ def consolidated_view():
 if __name__ == '__main__':
     app.run(debug=True)
     
+handler = handler(app)
     
 # from flask import Flask, request, render_template
 # import mysql.connector
